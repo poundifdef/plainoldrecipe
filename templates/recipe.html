@@ -1,0 +1,83 @@
+<html>
+<head>
+    <style>
+        @media print {
+            @page {
+                size: 6in 4in landscape;
+                margin: 0.125in;
+            }
+            body {
+                width: 6in;
+                height: 4in;
+                margin: 0.125in;
+                font-size: 10pt;
+            }
+            h1 {
+                font-size: 10pt;
+                font-weight: bold;
+            }
+            h2 {
+                display: none;
+            }
+            img {
+                display: none;
+            }
+        }
+        @media screen {
+            body {
+                margin: 0.25in auto;
+                background: #f2f2f2;
+                color: #444444;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                font-size: 16px;
+                line-height: 1.8;
+                text-shadow: 0 1px 0 #ffffff;
+                max-width: 95%;
+            }
+            a {
+                border-bottom: 1px solid #444444;
+                color: #444444;
+                text-decoration: none;
+            }
+            a:hover {
+                border-bottom: 0;
+            }
+
+            .recipe_image {
+                float: right;
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="recipe_image">
+    <img width="250" src="{{recipe['image']}}">
+    </div>
+    <h1>{{recipe['name']}}</h1>
+
+    <p><i>{{recipe['description']}}</i></p>
+
+    <h2>Ingredients</h2>
+
+    <ul style="columns: 3; margin:0.125in; padding:0">
+        {% for i in recipe['ingredients'] %}
+        <li>{{i}}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Directions</h2>
+
+    <ol style="margin:0.125in; padding:0">
+        {% for i in recipe['instructions'] %}
+        <li>{{i}}</li>
+        {% endfor %}
+    </ol>
+
+    {{recipe['url']}}
+
+</body>
+
+</html>
