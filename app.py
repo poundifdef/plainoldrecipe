@@ -28,10 +28,12 @@ def scrape_recipe(url):
         if parser is None:
             return recipe
 
-        try:
-            recipe = parser.Parse(url)
-        except:
-            return recipe
+        recipe = parser.Parse(url)
+
+        #try:
+        #    recipe = parser.Parse(url)
+        #except:
+        #    return recipe
 
     return recipe
 
