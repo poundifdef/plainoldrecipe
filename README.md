@@ -1,6 +1,8 @@
 This program parses recipes from common websites and displays them using
 plain-old HTML.
 
+You can use it here: https://plainoldrecipe.appspot.com/
+
 Home Page:
 ![Home Page](/screenshots/home.png?raw=true "Home Page")
 
