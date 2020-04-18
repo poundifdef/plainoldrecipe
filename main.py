@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify, redirect, make_response, url_for, flash
-from recipe_scrapers import scrape_me, WebsiteNotImplementedError
+from recipe_scrapers import scrape_me, WebsiteNotImplementedError, SCRAPERS
 import urllib
 import parsers
 
@@ -26,7 +26,7 @@ def scrape_recipe(url):
         parser = parsers.getParser(domain)
 
         if parser is None:
-            return recipe
+            return None
 
         recipe = parser.Parse(url)
 
@@ -44,8 +44,25 @@ def index():
 @app.route('/recipe')
 def recipe():
     url = request.args['url']
-    recipe = scrape_recipe(url)
-    return render_template('recipe.html', recipe=recipe)
+    parsed_uri = urllib.parse.urlparse(url)
+    domain = parsed_uri.netloc.lower()
+
+    try:
+        recipe = scrape_recipe(url)
+        if recipe is None:
+            return render_template('unsupported.html', domain=domain)
+
+        return render_template('recipe.html', recipe=recipe)
+    except:
+        return render_template('parse_error.html', domain=domain)
+
+@app.route('/supported-websites')
+def supported_websites():
+    sites = list(SCRAPERS.keys())
+    sites += parsers.PARSERS
+    sites.sort()
+
+    return render_template('supported.html', sites=sites)
 
 if __name__ == '__main__':
     app.run('localhost', 8080, debug=True, threaded=True)

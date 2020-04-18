@@ -1,13 +1,13 @@
 from parsers.gimmesomeoven import Gimmesomeoven
 from parsers.smittenkitchen import Smittenkitchen
 
-def getParser(domain):
-    parsers = {
-        'www.gimmesomeoven.com': Gimmesomeoven,
-        'smittenkitchen.com': Smittenkitchen
-    }
+PARSERS = {
+    'www.gimmesomeoven.com': Gimmesomeoven,
+    'smittenkitchen.com': Smittenkitchen
+}
 
-    parser = parsers.get(domain)
+def getParser(domain):
+    parser = PARSERS.get(domain)
     if not parser:
         return None
 

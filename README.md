@@ -12,6 +12,10 @@ View the recipe in your browser:
 If you print the recipe, shows with minimal formatting:
 ![Print View](/screenshots/print.png?raw=true "Print View")
 
+Deploy
+
+gcloud app deploy
+
 Acknowledgements:
 
 - https://github.com/hhursev/recipe-scrapers
