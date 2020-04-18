@@ -7,8 +7,6 @@ class Gimmesomeoven(Recipe):
     def get_json_recipe(self, d):
         recipe = {}
         for r in d['@graph']:
-            print(r['@type'])
-
             if not isinstance(r['@type'], str):
                 continue
 

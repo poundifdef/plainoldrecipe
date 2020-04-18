@@ -2,7 +2,7 @@ import json
 
 from parsers.recipe import Recipe
 
-class Lovingitvegan(Recipe):
+class Minimalistbaker(Recipe):
 
     def get_json_recipe(self, d):
         recipe = {}
@@ -24,7 +24,7 @@ class Lovingitvegan(Recipe):
     def Parse(self, url):
         recipe = {}
         recipe['url'] = url
-        recipe['source'] = 'lovingitvegan.com'
+        recipe['source'] = 'minimalistbaker.com'
 
         soup = self.fetch_soup(url)
 
