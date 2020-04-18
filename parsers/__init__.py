@@ -1,9 +1,11 @@
 from parsers.gimmesomeoven import Gimmesomeoven
 from parsers.smittenkitchen import Smittenkitchen
+from parsers.letsdishrecipes import Letsdishrecipes
 
 PARSERS = {
     'www.gimmesomeoven.com': Gimmesomeoven,
-    'smittenkitchen.com': Smittenkitchen
+    'smittenkitchen.com': Smittenkitchen,
+    'letsdishrecipes.com': Letsdishrecipes,
 }
 
 def getParser(domain):

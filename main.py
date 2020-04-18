@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify, redirect, make_respo
 from recipe_scrapers import scrape_me, WebsiteNotImplementedError, SCRAPERS
 import urllib
 import parsers
+import logging
 
 app = Flask(__name__)
 
@@ -54,6 +55,7 @@ def recipe():
 
         return render_template('recipe.html', recipe=recipe)
     except:
+        logging.exception(url)
         return render_template('parse_error.html', domain=domain)
 
 @app.route('/supported-websites')
