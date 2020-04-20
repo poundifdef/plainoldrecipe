@@ -42,6 +42,6 @@ Contributing
    issue and ask prior to making your PR. Of course, you are welcome to fork,
    modify, and distribute this code with your changes in accordance with the LICENSE.
 
-4. I don't gaurantee that I will keep this repo up to date, or that I will respond
+4. I don't guarantee that I will keep this repo up to date, or that I will respond
    in any sort of timely fashion! Your best bet for any change is to keep PRs small
    and focused on the minimum changeset to add your scraper :)
