@@ -10,7 +10,12 @@
                 width: 6in;
                 height: 4in;
                 margin: 0.125in;
-                font-size: 10pt;
+                font-size: 9pt;
+                overflow: visible;
+                font-family: Helvetica;
+                /*
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+                */
             }
             h1 {
                 font-size: 10pt;
@@ -73,9 +78,9 @@
 
     <h2>Directions</h2>
 
-    <ol style="margin:0.125in; padding:0">
+    <ol style="margin:0.125in; padding:0; overflow: visible; display: block">
         {% for i in recipe['instructions'] %}
-        <li>{{i}}</li>
+        <li>{{i}}<br></li>
         {% endfor %}
     </ol>
 

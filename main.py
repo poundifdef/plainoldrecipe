@@ -11,10 +11,11 @@ def scrape_recipe(url):
 
     try:
         scraper = scrape_me(url)
+        instructions = [i.strip() for i in scraper.instructions().split("\n") if i.strip()]
         recipe = {
             'name': scraper.title(),
             'ingredients': scraper.ingredients(),
-            'instructions': scraper.instructions().split("\n"),
+            'instructions': instructions,
             'image': scraper.image(),
             'url': url,
         }
