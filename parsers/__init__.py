@@ -4,6 +4,7 @@ from parsers.letsdishrecipes import Letsdishrecipes
 from parsers.lovingitvegan import Lovingitvegan
 from parsers.minimalistbaker import Minimalistbaker
 from parsers.bowlofdelicious import Bowlofdelicious
+from parsers.chefkoch import Chefkoch
 
 PARSERS = {
     'www.gimmesomeoven.com': Gimmesomeoven,
@@ -12,6 +13,7 @@ PARSERS = {
     'lovingitvegan.com': Lovingitvegan,
     'minimalistbaker.com': Minimalistbaker,
     'www.bowlofdelicious.com': Bowlofdelicious,
+    'www.chefkoch.de': Chefkoch,
 }
 
 def getParser(domain):
