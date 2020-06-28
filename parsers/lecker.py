@@ -1,4 +1,5 @@
 import json
+import re
 
 from parsers.recipe import Recipe
 
@@ -10,7 +11,7 @@ class Lecker(Recipe):
         recipe['name'] = d['name']
         recipe['description'] = d['description']
         recipe['ingredients'] = d['recipeIngredient']
-        recipe['instructions'] = [i.strip() for i in d['recipeInstructions'].split('\n') if i.strip()]
+        recipe['instructions'] = [re.sub('^[0-9]+[.]','', i.strip()) for i in d['recipeInstructions'].split('\n') if i.strip()]
         recipe['image'] = d['image']
 
         return recipe
