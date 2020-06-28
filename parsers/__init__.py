@@ -9,19 +9,21 @@ from parsers.lecker import Lecker
 from parsers.essenundtriken import EssenUndTrinken
 from parsers.kuechengoetter import Kuechengoetter
 from parsers.kochbar import Kochbar
+from parsers.hostthetoast import Hostthetoast
 
 PARSERS = {
-    'www.gimmesomeoven.com': Gimmesomeoven,
+    'gimmesomeoven.com': Gimmesomeoven,
     'smittenkitchen.com': Smittenkitchen,
     'letsdishrecipes.com': Letsdishrecipes,
     'lovingitvegan.com': Lovingitvegan,
-    'minimalistbaker.com': Minimalistbaker,
-    'www.bowlofdelicious.com': Bowlofdelicious,
-    'www.chefkoch.de': Chefkoch,
-    'www.lecker.de': Lecker,
-    'www.essen-und-trinken.de': EssenUndTrinken,
-    'www.kuechengoetter.de' : Kuechengoetter,
-    'www.kochbar.de' : Kochbar,
+    'minimalistbaker.com': Minimalistbaker,    
+    'bowlofdelicious.com': Bowlofdelicious,
+    'hostthetoast.com': Hostthetoast,
+    'chefkoch.de': Chefkoch,
+    'lecker.de': Lecker,
+    'essen-und-trinken.de': EssenUndTrinken,
+    'kuechengoetter.de' : Kuechengoetter,
+    'kochbar.de' : Kochbar,
 }
 
 def getParser(domain):
