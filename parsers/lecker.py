@@ -10,7 +10,7 @@ class Lecker(Recipe):
         recipe['name'] = d['name']
         recipe['description'] = d['description']
         recipe['ingredients'] = d['recipeIngredient']
-        recipe['instructions'] = d['recipeInstructions'].split('\n')
+        recipe['instructions'] = [i.strip() for i in d['recipeInstructions'].split('\n') if i.strip()]
         recipe['image'] = d['image']
 
         return recipe
