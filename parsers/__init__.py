@@ -7,6 +7,8 @@ from parsers.bowlofdelicious import Bowlofdelicious
 from parsers.chefkoch import Chefkoch
 from parsers.lecker import Lecker
 from parsers.essenundtriken import EssenUndTrinken
+from parsers.kuechengoetter import Kuechengoetter
+from parsers.kochbar import Kochbar
 
 PARSERS = {
     'www.gimmesomeoven.com': Gimmesomeoven,
@@ -18,6 +20,8 @@ PARSERS = {
     'www.chefkoch.de': Chefkoch,
     'www.lecker.de': Lecker,
     'www.essen-und-trinken.de': EssenUndTrinken,
+    'www.kuechengoetter.de' : Kuechengoetter,
+    'www.kochbar.de' : Kochbar,
 }
 
 def getParser(domain):
