@@ -23,7 +23,7 @@ PARSERS = {
     'lecker.de': Lecker,
     'essen-und-trinken.de': EssenUndTrinken,
     'kuechengoetter.de' : Kuechengoetter,
-    'kochbar.de' : Kochbar,
+    'kochbar.de' : Kochbar,    
 }
 
 def getParser(domain):
