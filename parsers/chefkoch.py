@@ -9,7 +9,7 @@ class Chefkoch(Recipe):
         recipe['name'] = r['name']
         recipe['description'] = r['description']
         recipe['ingredients'] = r['recipeIngredient']
-        recipe['instructions'] = [r['recipeInstructions']]
+        recipe['instructions'] = r['recipeInstructions'].split('\r\n\r\n')
         recipe['image'] = r['image']
 
         return recipe
