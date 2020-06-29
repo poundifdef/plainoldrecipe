@@ -5,15 +5,18 @@ from parsers.lovingitvegan import Lovingitvegan
 from parsers.minimalistbaker import Minimalistbaker
 from parsers.bowlofdelicious import Bowlofdelicious
 from parsers.chefkoch import Chefkoch
+from parsers.hostthetoast import Hostthetoast
 
 PARSERS = {
-    'www.gimmesomeoven.com': Gimmesomeoven,
+    'gimmesomeoven.com': Gimmesomeoven,
     'smittenkitchen.com': Smittenkitchen,
     'letsdishrecipes.com': Letsdishrecipes,
     'lovingitvegan.com': Lovingitvegan,
     'minimalistbaker.com': Minimalistbaker,
-    'www.bowlofdelicious.com': Bowlofdelicious,
     'www.chefkoch.de': Chefkoch,
+    'www.bowlofdelicious.com': Bowlofdelicious,
+    'bowlofdelicious.com': Bowlofdelicious,
+    'hostthetoast.com': Hostthetoast,
 }
 
 def getParser(domain):
