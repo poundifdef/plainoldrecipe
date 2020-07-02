@@ -7,14 +7,14 @@ from parsers.bowlofdelicious import Bowlofdelicious
 from parsers.chefkoch import Chefkoch
 from parsers.hostthetoast import Hostthetoast
 
+# Must exclude the "www" portion of the URL
 PARSERS = {
     'gimmesomeoven.com': Gimmesomeoven,
     'smittenkitchen.com': Smittenkitchen,
     'letsdishrecipes.com': Letsdishrecipes,
     'lovingitvegan.com': Lovingitvegan,
     'minimalistbaker.com': Minimalistbaker,
-    'www.chefkoch.de': Chefkoch,
-    'www.bowlofdelicious.com': Bowlofdelicious,
+    'chefkoch.de': Chefkoch,
     'bowlofdelicious.com': Bowlofdelicious,
     'hostthetoast.com': Hostthetoast,
 }
