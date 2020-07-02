@@ -8,11 +8,7 @@ class EssenUndTrinken(Recipe):
         recipe = {}    
         
         recipe['name'] = d['name']
-
-        if d.__contains__('description'):
-            recipe['description'] = d['description']
-        else:
-            recipe['description'] = ""
+        recipe['description'] = d.get('description', '')    
         recipe['ingredients'] = d['recipeIngredient']
         recipe['instructions'] = self.cleanhtml(d['recipeInstructions']).split('\n')
         recipe['image'] = d['image']
