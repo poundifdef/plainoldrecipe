@@ -6,6 +6,7 @@ from parsers.minimalistbaker import Minimalistbaker
 from parsers.bowlofdelicious import Bowlofdelicious
 from parsers.chefkoch import Chefkoch
 from parsers.hostthetoast import Hostthetoast
+from parsers.acouplecooks import ACoupleCooks
 
 # Must exclude the "www" portion of the URL
 PARSERS = {
@@ -17,6 +18,7 @@ PARSERS = {
     'chefkoch.de': Chefkoch,
     'bowlofdelicious.com': Bowlofdelicious,
     'hostthetoast.com': Hostthetoast,
+    'acouplecooks.com': ACoupleCooks
 }
 
 def getParser(domain):
