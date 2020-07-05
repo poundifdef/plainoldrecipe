@@ -15,7 +15,9 @@ class Thewoksoflife(Recipe):
 
             recipe['name'] = r['name']
             recipe['description'] = r['description']
-            recipe['ingredients'] = r['recipeIngredient']
+            recipe['ingredients'] = [
+                    ingredient.replace('((', '(').replace('))', ')')
+                    for ingredient in r.get('recipeIngredient', [])]
             recipe['instructions'] = [i['text'] for i in r['recipeInstructions']]
             recipe['image'] = r['image'][0]
 
