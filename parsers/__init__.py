@@ -35,4 +35,4 @@ def getParser(domain):
     if not parser:
         return None
 
-    return parser()
+    return parser(domain)
