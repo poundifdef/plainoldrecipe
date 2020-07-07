@@ -11,6 +11,7 @@ from parsers.essenundtriken import EssenUndTrinken
 from parsers.kuechengoetter import Kuechengoetter
 from parsers.kochbar import Kochbar
 from parsers.hostthetoast import Hostthetoast
+from parsers.thewoksoflife import Thewoksoflife
 
 # Must exclude the "www" portion of the URL
 PARSERS = {
@@ -21,11 +22,12 @@ PARSERS = {
     'minimalistbaker.com': Minimalistbaker,
     'chefkoch.de': Chefkoch,
     'bowlofdelicious.com': Bowlofdelicious,
-    'hostthetoast.com': Hostthetoast,    
+    'hostthetoast.com': Hostthetoast,
     'lecker.de': Lecker,
     'essen-und-trinken.de': EssenUndTrinken,
     'kuechengoetter.de' : Kuechengoetter,
-    'kochbar.de' : Kochbar,    
+    'kochbar.de' : Kochbar,
+    'thewoksoflife.com': Thewoksoflife,
 }
 
 def getParser(domain):
