@@ -9,7 +9,6 @@ from parsers.hostthetoast import Hostthetoast
 
 # Must exclude the "www" portion of the URL
 PARSERS = {
-    "smittenkitchen.com": Smittenkitchen,
     "letsdishrecipes.com": Letsdishrecipes,
     "chefkoch.de": Chefkoch,
     "hostthetoast.com": Hostthetoast,
