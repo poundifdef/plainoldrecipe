@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from flask import Flask, render_template, request, jsonify, redirect, make_response, url_for, flash
 from recipe_scrapers import scrape_me, WebsiteNotImplementedError, SCRAPERS
 import urllib
