@@ -70,6 +70,12 @@
         padding: 0.25rem 0.5rem;
     }
     
+    /* Unsupported styles */
+    .supported-list {
+        columns: 1;
+        padding-left: 1.25rem;
+    }
+
     /* Responsive styles */
     @media screen and (min-width: 360px) {
         nav.nav {
@@ -79,6 +85,16 @@
     @media screen and (min-width: 480px) {
         main {
             max-width: 800px;
+        }
+    }
+    @media screen and (min-width: 660px) {
+        .supported-list {
+            columns: 2;
+        }
+    }
+    @media screen and (min-width: 980px) {
+        .supported-list {
+            columns: 3;
         }
     }
     @media screen and (min-width: 1220px) {
