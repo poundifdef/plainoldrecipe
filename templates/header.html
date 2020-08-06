@@ -1,16 +1,15 @@
 <html>
 <head>
-    <title>Plain Old Recipe</title>
+    {% if page_title is undefined %}
+        {% set page_title %}
+            <title>Plain Old Recipe</title>
+        {% endset %}
+    {% endif %}
     {% include 'header-meta.html' %}
-
-    {% include 'styles.html' %}
 </head>
 
 <body>
     <main>
-        <nav class="nav">
-            <a href="/">Home</a> |
-            <a href="/supported-websites">Supported Websites</a> |
-            <a href="javascript:void(window.open('https://plainoldrecipe.com/recipe?url='+location.href.replace(/%5C/$/,%20'')));">Bookmarklet</a> |
-            <a href="https://github.com/poundifdef/plainoldrecipe">GitHub</a>
-        </nav>
+        {% if hide_nav is not true %}
+        {% include 'nav.html' %}
+        {% endif %}
