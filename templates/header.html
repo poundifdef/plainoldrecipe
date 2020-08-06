@@ -4,16 +4,15 @@
     <title>plainoldrecipe.com</title>
     <meta name="description" content="Take a recipe website URL and remove the cruft.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     {% include 'styles.html' %}
-    
 </head>
 
 <body>
-
-    <div style="text-align: right; font-size: 10pt">
-        <a href="/">Home</a> |
-        <a href="/supported-websites">Supported Websites</a> |
-        <a href="javascript:void(window.open('https://plainoldrecipe.com/recipe?url='+location.href.replace(/%5C/$/,%20'')));">Bookmarklet</a> |
-        <a href="https://github.com/poundifdef/plainoldrecipe">GitHub</a>
-    </div>
+    <main>
+        <nav class="nav">
+            <a href="/">Home</a> |
+            <a href="/supported-websites">Supported Websites</a> |
+            <a href="javascript:void(window.open('https://plainoldrecipe.com/recipe?url='+location.href.replace(/%5C/$/,%20'')));">Bookmarklet</a> |
+            <a href="https://github.com/poundifdef/plainoldrecipe">GitHub</a>
+        </nav>
