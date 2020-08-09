@@ -9,34 +9,27 @@ app = Flask(__name__)
 def scrape_recipe(url):
     recipe = {}
 
-    try:
-        scraper = scrape_me(url)
-        instructions = [i.strip() for i in scraper.instructions().split("\n") if i.strip()]
-        recipe = {
-            'name': scraper.title(),
-            'ingredients': scraper.ingredients(),
-            'instructions': instructions,
-            'image': scraper.image(),
-            'url': url,
-        }
-    except WebsiteNotImplementedError:
-        pass
+    parsed_uri = urllib.parse.urlparse(url)
+    domain = parsed_uri.netloc.lower()
+    domain = domain.replace('www.', '', 1) if domain.startswith('www.') else domain
+    parser = parsers.getParser(domain)
 
-    if not recipe:
-        parsed_uri = urllib.parse.urlparse(url)
-        domain = parsed_uri.netloc.lower()
-        domain = domain.replace('www.', '', 1) if domain.startswith('www.') else domain
-        parser = parsers.getParser(domain)
-
-        if parser is None:
-            return None
-
+    if parser is not None:
         recipe = parser.Parse(url)
 
-        #try:
-        #    recipe = parser.Parse(url)
-        #except:
-        #    return recipe
+    if not recipe:
+        try:
+            scraper = scrape_me(url)
+            instructions = [i.strip() for i in scraper.instructions().split("\n") if i.strip()]
+            recipe = {
+                'name': scraper.title(),
+                'ingredients': scraper.ingredients(),
+                'instructions': instructions,
+                'image': scraper.image(),
+                'url': url,
+            }
+        except WebsiteNotImplementedError:
+            pass
 
     return recipe
 
