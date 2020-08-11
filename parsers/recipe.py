@@ -43,7 +43,21 @@ class WpJsonRecipe(Recipe):
             recipe['name'] = r['name']
             recipe['description'] = r['description']
             recipe['ingredients'] = r['recipeIngredient']
-            recipe['instructions'] = [i['text'] for i in r['recipeInstructions']]
+
+            instructions = []
+
+            if len(r.get('recipeInstructions', [])) > 0:
+                if 'text' in r['recipeInstructions'][0]:
+                    instructions = [i['text'] for i in r['recipeInstructions']]
+                else:
+                    print(r['recipeInstructions'][0])
+                    for how_to_section in r['recipeInstructions']:
+                        for instruction in how_to_section.get('itemListElement', []):
+                            if instruction.get('@type') == 'HowToStep':
+                                instructions.append(instruction['text'].replace('&nbsp;', ''))
+
+            recipe['instructions'] = instructions
+
             recipe['image'] = r['image'][0]
 
         return recipe

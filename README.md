@@ -18,7 +18,7 @@ If you print the recipe, shows with minimal formatting:
 Deploy
 ------
 
-gcloud app deploy --account=gargoylemusic@gmail.com --project=plainoldrecipe 
+Run deploy.sh
 
 Acknowledgements
 ----------------
