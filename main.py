@@ -45,7 +45,7 @@ def recipe():
 
     try:
         recipe = scrape_recipe(url)
-        if recipe is None:
+        if not recipe:
             return render_template('unsupported.html', domain=domain)
 
         return render_template('recipe.html', recipe=recipe)
