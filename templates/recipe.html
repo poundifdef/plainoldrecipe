@@ -1,12 +1,4 @@
-{% set page_title %}
-    <title>{{recipe['name']}} - Plain Old Recipe</title>
-{% endset %}
-{% set extra_css %}
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/recipe.css') }}">
-{% endset %}
-{% set hide_nav = true %}
-
-{% include 'header.html' %}
+{% include 'recipe-header.html' %}
 
     <div class="recipe-image">
         <img src="{{recipe['image']}}" alt="An image of {{recipe['name']}}" />

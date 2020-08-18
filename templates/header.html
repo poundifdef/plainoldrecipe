@@ -1,15 +1,9 @@
 <html>
 <head>
-    {% if page_title is undefined %}
-        {% set page_title %}
-            <title>Plain Old Recipe</title>
-        {% endset %}
-    {% endif %}
+    <title>Plain Old Recipe</title>
     {% include 'header-meta.html' %}
 </head>
 
 <body>
     <main>
-        {% if hide_nav is not true %}
         {% include 'nav.html' %}
-        {% endif %}
