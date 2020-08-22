@@ -1,33 +1,9 @@
 <html>
 <head>
-    <style>
-        body {
-            margin: 0.25in auto;
-            background: #f2f2f2;
-            color: #444444;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            font-size: 16px;
-            line-height: 1.8;
-            text-shadow: 0 1px 0 #ffffff;
-            max-width: 73%;
-        }
-
-        a {
-            color: #444444;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <title>Plain Old Recipe</title>
+    {% include 'header-meta.html' %}
 </head>
 
 <body>
-
-    <div style="text-align: right; font-size: 10pt">
-        <a href="/">Home</a> |
-        <a href="/supported-websites">Supported Websites</a> |
-        <a href="javascript:void(window.open('https://plainoldrecipe.com/recipe?url='+location.href.replace(/%5C/$/,%20'')));">Bookmarklet</a> |
-        <a href="https://github.com/poundifdef/plainoldrecipe">GitHub</a>
-    </div>
+    <main>
+        {% include 'nav.html' %}
