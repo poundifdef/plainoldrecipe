@@ -1,4 +1,4 @@
 flask
-recipe-scrapers==9.0.3
+recipe-scrapers==9.2.2
 beautifulsoup4
 requests
