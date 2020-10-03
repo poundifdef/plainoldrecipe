@@ -45,3 +45,8 @@ Contributing
 4. I don't guarantee that I will keep this repo up to date, or that I will respond
    in any sort of timely fashion! Your best bet for any change is to keep PRs small
    and focused on the minimum changeset to add your scraper :)
+
+Testing PRs Locally
+===================
+
+git fetch origin pull/ID/head:BRANCHNAME
