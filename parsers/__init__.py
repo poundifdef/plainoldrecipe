@@ -14,6 +14,7 @@ from parsers.hostthetoast import Hostthetoast
 from parsers.thewoksoflife import Thewoksoflife
 from parsers.glebekitchen import GlebeKitchen
 from parsers.akispetretzikis import AkisPetretzikis
+from parsers.hervecuisine import Hervecuisine
 
 # Must exclude the "www" portion of the URL
 PARSERS = {
@@ -31,7 +32,8 @@ PARSERS = {
     'kochbar.de' : Kochbar,
     'thewoksoflife.com': Thewoksoflife,
     'glebekitchen.com': GlebeKitchen,
-    'akispetretzikis.com': AkisPetretzikis
+    'akispetretzikis.com': AkisPetretzikis,
+    'hervecuisine.com': Hervecuisine
 }
 
 def getParser(domain):
