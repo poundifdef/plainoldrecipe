@@ -10,8 +10,8 @@ class EssenUndTrinken(Recipe):
         recipe['name'] = d['name']
         recipe['description'] = d.get('description', '')    
         recipe['ingredients'] = d['recipeIngredient']
-        recipe['instructions'] = self.cleanhtml(d['recipeInstructions']).split('\n')
-        recipe['image'] = d['image']
+        recipe['instructions'] = d['recipeInstructions']
+        recipe['image'] = d['image'][0]['url']
 
         return recipe
 
@@ -24,13 +24,9 @@ class EssenUndTrinken(Recipe):
 
         result = soup.find_all('script', {'type': 'application/ld+json'})
         
-        d = json.loads(result[1].contents[0])
+        d = json.loads(result[0].contents[0])[0]
                 
         parsed_recipe = self.get_json_recipe(d)
         recipe.update(parsed_recipe)
 
         return recipe
-    
-    def cleanhtml(self, txt):
-        cleanr = re.compile('<.*?>')        
-        return re.sub(cleanr, '', txt.lstrip(" \n"))

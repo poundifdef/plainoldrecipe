@@ -46,12 +46,12 @@ def recipe():
     try:
         recipe = scrape_recipe(url)
         if not recipe:
-            return render_template('unsupported.html', domain=domain)
+            return render_template('unsupported.html', domain=domain), 501
 
         return render_template('recipe.html', recipe=recipe)
     except:
         logging.exception(url)
-        return render_template('parse_error.html', domain=domain)
+        return render_template('parse_error.html', domain=domain), 418
 
 @app.route('/supported-websites')
 def supported_websites():
