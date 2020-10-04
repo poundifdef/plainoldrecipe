@@ -1,4 +1,4 @@
-flask
-recipe-scrapers==9.0.3
-beautifulsoup4
-requests
+flask==1.1.2
+recipe-scrapers==10.0.0
+beautifulsoup4==4.9.1
+requests==2.24.0
