@@ -55,8 +55,9 @@ def recipe():
 
 @app.route('/supported-websites')
 def supported_websites():
-    sites = list(SCRAPERS.keys())
-    sites += parsers.PARSERS
+    sitesSet = SCRAPERS.keys()
+    sitesSet |= set(parsers.PARSERS.keys())
+    sites = list(sitesSet)
     sites.sort()
 
     return render_template('supported.html', sites=sites)
