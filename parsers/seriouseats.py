@@ -11,18 +11,21 @@ class Seriouseats(Recipe):
         result = soup.find('div', {'class': 'recipe-introduction-body'})
         recipe['description'] = result.contents[3].text
 
-        result = soup.find('div', {'class': 'se-pinit-image-container'})
-        recipe['image'] = result.contents[1]['src']
+        try:  # try-except: https://www.seriouseats.com/recipes/2018/10/yeasted-pumpkin-bread.html breaks this due to it using a video, not <img>
+            result = soup.find('div', {'class': 'se-pinit-image-container'})
+            recipe['image'] = result.contents[1]['src']
+        except AttributeError:
+            recipe['image'] = None
 
         recipe['ingredients'] = []
         ingredients = soup.find_all('li', {'class': 'ingredient'})
         for ingredient in ingredients:
-            recipe['ingredients'].append(ingredient.contents[0])
+            recipe['ingredients'].append(ingredient.text)
 
         recipe['instructions'] = []
-        instructions = soup.find_all('div', {'class': 'recipe-procedure-text'})
-        for instruction in instructions:
-            recipe['instructions'].append(instruction.contents[2].text)
+        divs = soup.find_all('div', {'class': 'recipe-procedure-text'})
+        for div in divs:
+            recipe['instructions'].append(div.text)
 
         return recipe
 
