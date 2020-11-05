@@ -1,39 +1,32 @@
+import json
 from parsers.recipe import Recipe
+
 
 class ThatLowCarbLife(Recipe):
 
-    def scrape_recipe(self, soup):
-        recipe = {}
+    def get_json_recipe(self, soup):
+        recipe = {'name': soup['name'], 'description': soup['description'], 'ingredients': soup['recipeIngredient']}
 
-        name = soup.find('h2', {'class': 'mv-create-title'})
-        recipe['name'] = name.contents[0]
+        try:  # This alone works for 9/10 tested recipes
+            recipe['instructions'] = [i['text'] for i in soup['recipeInstructions']]
+        except TypeError:  # https://thatlowcarblife.com/big-mac-chaffle/ throws TypeError
+            recipe['instructions'] = soup['recipeInstructions']
+            recipe['instructions'] = list(recipe['instructions'].split("\n"))
+            recipe['instructions'] = list(filter(None, recipe['instructions']))
 
-        description = soup.find('div', {'class': 'mv-create-description'})
-        recipe['description'] = description.contents[0].text
-
-        image = soup.find('header', {'class': 'mv-create-header'})
-        recipe['image'] = image.contents[1]['src']
-
-        recipe['ingredients'] = []
-        ingredients = soup.find('div', {'class': 'mv-create-ingredients'}).find('ul').findChildren('li')
-        for li in ingredients:
-            recipe['ingredients'].append(li.text)
-
-        recipe['instructions'] = []
-        instructions = soup.find('div', {'class': 'mv-create-instructions'}).find('ol').findChildren('li')
-        for li in instructions:
-            recipe['instructions'].append(li.text)
+        recipe['image'] = soup['image'][0]
 
         return recipe
 
-
     def Parse(self, url):
-        recipe = {}
-        recipe['url'] = url
-        recipe['source'] = 'thatlowcarblife.com'
+        recipe = {'url': url}
 
         soup = self.fetch_soup(url)
-        parsed_recipe = self.scrape_recipe(soup)
+        result = soup.find_all('script', {'type': 'application/ld+json'})
+
+        decoded_result = json.loads(result[1].contents[0])
+        parsed_recipe = self.get_json_recipe(decoded_result)
+
         recipe.update(parsed_recipe)
 
         return recipe
