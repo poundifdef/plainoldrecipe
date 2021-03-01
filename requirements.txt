@@ -1,4 +1,4 @@
 flask==1.1.2
-recipe-scrapers==10.1.1
+recipe-scrapers==12.2.0
 beautifulsoup4==4.9.1
 requests==2.24.0
