@@ -15,6 +15,30 @@ View the recipe in your browser:
 If you print the recipe, shows with minimal formatting:
 ![Print View](/screenshots/print.png?raw=true "Print View")
 
+Building Locally
+------
+1. Install Python 3.6 or newer
+2. `git clone https://github.com/poundifdef/plainoldrecipe.git` or download the source and extract
+3. `cd plainoldrecipe`
+4. [Create a virtual environment](https://docs.python.org/3/tutorial/venv.html#creating-virtual-environments) (*optional*)
+5. `pip install -r requirements.txt`
+6. `python main.py`
+
+If all goes well you should see something along the lines of:
+```
+python main.py
+ * Serving Flask app "main" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 123-456-789
+ * Running on http://localhost:8080/ (Press CTRL+C to quit)
+```
+After which simply navigate to the appropriate URL as displayed on the last line.
+
 Deploy
 ------
 
