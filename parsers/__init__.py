@@ -15,6 +15,7 @@ from parsers.thewoksoflife import Thewoksoflife
 from parsers.glebekitchen import GlebeKitchen
 from parsers.akispetretzikis import AkisPetretzikis
 from parsers.hervecuisine import Hervecuisine
+from parsers.thatlowcarblife import ThatLowCarbLife
 from parsers.seriouseats import Seriouseats
 from parsers.fattoincasadabenedetta import Fattoincasadabenedetta
 
@@ -36,6 +37,7 @@ PARSERS = {
     'glebekitchen.com': GlebeKitchen,
     'akispetretzikis.com': AkisPetretzikis,
     'hervecuisine.com': Hervecuisine,
+    'thatlowcarblife.com': ThatLowCarbLife,
     'seriouseats.com' : Seriouseats,
     'fattoincasadabenedetta.it': Fattoincasadabenedetta,
 }
