@@ -36,7 +36,7 @@ PARSERS = {
     'glebekitchen.com': GlebeKitchen,
     'akispetretzikis.com': AkisPetretzikis,
     'hervecuisine.com': Hervecuisine,
-    'seriouseats.com' : Seriouseats
+    'seriouseats.com' : Seriouseats,
     'fattoincasadabenedetta.it': Fattoincasadabenedetta,
 }
 
