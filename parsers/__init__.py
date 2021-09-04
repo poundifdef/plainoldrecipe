@@ -18,6 +18,7 @@ from parsers.hervecuisine import Hervecuisine
 from parsers.thatlowcarblife import ThatLowCarbLife
 from parsers.seriouseats import Seriouseats
 from parsers.fattoincasadabenedetta import Fattoincasadabenedetta
+from parsers.dinneratthezoo import DinnerAtTheZoo
 
 # Must exclude the "www" portion of the URL
 PARSERS = {
@@ -40,6 +41,7 @@ PARSERS = {
     'thatlowcarblife.com': ThatLowCarbLife,
     'seriouseats.com' : Seriouseats,
     'fattoincasadabenedetta.it': Fattoincasadabenedetta,
+    'dinneratthezoo.com': DinnerAtTheZoo
 }
 
 def getParser(domain):
