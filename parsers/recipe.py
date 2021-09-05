@@ -1,6 +1,7 @@
 import json
 import requests
 from bs4 import BeautifulSoup
+from pprint import pprint
 
 
 class Recipe(object):
@@ -45,18 +46,20 @@ class WpJsonRecipe(Recipe):
             recipe['ingredients'] = r['recipeIngredient']
 
             instructions = []
+            instruction_groups = {}
 
-            if len(r.get('recipeInstructions', [])) > 0:
-                if 'text' in r['recipeInstructions'][0]:
-                    instructions = [i['text'] for i in r['recipeInstructions']]
-                else:
-                    print(r['recipeInstructions'][0])
-                    for how_to_section in r['recipeInstructions']:
-                        for instruction in how_to_section.get('itemListElement', []):
-                            if instruction.get('@type') == 'HowToStep':
-                                instructions.append(instruction['text'].replace('&nbsp;', ''))
+            if r.get('recipeInstructions', []):
+                for i in r['recipeInstructions']:
+                    if 'text' in i:
+                        instructions.append(i['text'])
+                    elif 'itemListElement' in i and 'name' in i:
+                        instruction_groups[i['name']] = []
+                        for j in i['itemListElement']:
+                            if 'text' in j:
+                                instruction_groups[i['name']].append(j['text'])
 
             recipe['instructions'] = instructions
+            recipe['instruction_groups'] = instruction_groups
 
             recipe['image'] = r['image'][0]
 
