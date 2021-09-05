@@ -26,6 +26,15 @@
         {% endfor %}
     </ol>
 
+    {% for group, instructions in recipe['instruction_groups'].items() %}
+    <h3>{{group}}</h3>
+    <ol style="margin:0.125in; padding:0; overflow: visible; display: block">
+        {% for i in instructions %}
+        <li>{{i}}<br></li>
+        {% endfor %}
+    </ol>
+    {% endfor %}
+
     <a href="{{recipe['url']}}">{{recipe['url']}}</a>
 
 {% include 'footer.html' %}
