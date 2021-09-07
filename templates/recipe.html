@@ -26,6 +26,7 @@
         {% endfor %}
     </ol>
 
+    {% if recipe['instruction_groups'] %}
     {% for group, instructions in recipe['instruction_groups'].items() %}
     <h3>{{group}}</h3>
     <ol style="margin:0.125in; padding:0; overflow: visible; display: block">
@@ -34,6 +35,7 @@
         {% endfor %}
     </ol>
     {% endfor %}
+    {% endif %}
 
     <a href="{{recipe['url']}}">{{recipe['url']}}</a>
 
