@@ -22,7 +22,7 @@ Building Locally
 3. `cd plainoldrecipe`
 4. [Create a virtual environment](https://docs.python.org/3/tutorial/venv.html#creating-virtual-environments) (*optional*)
 5. `pip install -r requirements.txt`
-6. `python main.py`
+6. `python app.py`
 
 If all goes well you should see something along the lines of:
 ```
@@ -42,7 +42,7 @@ After which simply navigate to the appropriate URL as displayed on the last line
 Deploy
 ------
 
-Run deploy.sh
+Project is automatically deployed via render.com.
 
 Acknowledgements
 ----------------
