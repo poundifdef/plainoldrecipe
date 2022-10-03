@@ -1,5 +1,5 @@
 flask==2.1.0
-recipe-scrapers==14.14.0
+recipe-scrapers==14.14.1
 beautifulsoup4
 requests
 Gunicorn
