@@ -1,42 +1,59 @@
-{% include 'recipe-header.html' %}
+<html>
 
-    <div class="recipe-image">
-        <img src="{{recipe['image']}}" alt="An image of {{recipe['name']}}" />
-    </div>
-    <h1>{{recipe['name']}}</h1>
-    {% if recipe['description'] %}
+<head>
+    <title>{{recipe['name']}} - Plain Old Recipe</title>
+    <meta charset="UTF-8">
+
+    <meta name="description" content="Take a recipe website URL and remove the cruft.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/common.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/recipe.css') }}">
+</head>
+
+<body>
+    <main>
+
+        <div class="recipe-image">
+            <img src="{{recipe['image']}}" alt="An image of {{recipe['name']}}" />
+        </div>
+        <h1>{{recipe['name']}}</h1>
+        {% if recipe['description'] %}
         <p>
             <i>{{recipe['description']}}</i>
         </p>
-    {% endif %}
+        {% endif %}
 
-    <h2>Ingredients</h2>
+        <h2>Ingredients</h2>
 
-    <ul class="ingredients-list">
-        {% for i in recipe['ingredients'] %}
-        <li>{{i}}</li>
+        <ul class="ingredients-list">
+            {% for i in recipe['ingredients'] %}
+            <li>{{i}}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Directions</h2>
+
+        <ol style="margin:0.125in; padding:0; overflow: visible; display: block">
+            {% for i in recipe['instructions'] %}
+            <li>{{i}}<br></li>
+            {% endfor %}
+        </ol>
+
+        {% if recipe['instruction_groups'] %}
+        {% for group, instructions in recipe['instruction_groups'].items() %}
+        <h3>{{group}}</h3>
+        <ol style="margin:0.125in; padding:0; overflow: visible; display: block">
+            {% for i in instructions %}
+            <li>{{i}}<br></li>
+            {% endfor %}
+        </ol>
         {% endfor %}
-    </ul>
+        {% endif %}
 
-    <h2>Directions</h2>
+        <a href="{{recipe['url']}}">{{recipe['url']}}</a>
 
-    <ol style="margin:0.125in; padding:0; overflow: visible; display: block">
-        {% for i in recipe['instructions'] %}
-        <li>{{i}}<br></li>
-        {% endfor %}
-    </ol>
+    </main>
+</body>
 
-    {% if recipe['instruction_groups'] %}
-    {% for group, instructions in recipe['instruction_groups'].items() %}
-    <h3>{{group}}</h3>
-    <ol style="margin:0.125in; padding:0; overflow: visible; display: block">
-        {% for i in instructions %}
-        <li>{{i}}<br></li>
-        {% endfor %}
-    </ol>
-    {% endfor %}
-    {% endif %}
-
-    <a href="{{recipe['url']}}">{{recipe['url']}}</a>
-
-{% include 'footer.html' %}
+</html>
