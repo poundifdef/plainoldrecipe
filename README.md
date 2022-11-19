@@ -42,7 +42,7 @@ After which simply navigate to the appropriate URL as displayed on the last line
 Deploy
 ------
 
-Project is automatically deployed via render.com.
+`flyctl deploy`
 
 Acknowledgements
 ----------------
