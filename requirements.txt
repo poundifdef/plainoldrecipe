@@ -3,3 +3,4 @@ recipe-scrapers==14.23.0
 beautifulsoup4
 requests
 Gunicorn
+fpdf2

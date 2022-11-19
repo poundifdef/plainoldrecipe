@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, jsonify, redirect, make_response, url_for, flash
-from recipe_scrapers import scrape_me, WebsiteNotImplementedError, SCRAPERS
+from recipe_scrapers import scrape_me, scrape_html, WebsiteNotImplementedError, SCRAPERS
 import urllib
 import parsers
 import logging
+from fpdf import FPDF
+
 
 app = Flask(__name__)
 
@@ -19,6 +21,8 @@ def scrape_recipe(url):
 
     if not recipe:
         try:
+            # html = open('example.html', 'r').read()
+            # scraper = scrape_html(html)
             scraper = scrape_me(url)
             instructions = [i.strip() for i in scraper.instructions().split("\n") if i.strip()]
             recipe = {
@@ -37,6 +41,13 @@ def scrape_recipe(url):
 def index():
     return render_template('index.html')
 
+def create_pdf(recipe):
+    pdf = FPDF(orientation="landscape", unit="in", format=(4, 6))
+    pdf.add_page()
+    pdf.set_font('helvetica', size=16)
+    pdf.cell(txt=recipe['name'], w=0, align="C")
+    pdf.output("hello_world.pdf")
+
 @app.route('/recipe')
 def recipe():
     url = request.args['url']
@@ -48,6 +59,7 @@ def recipe():
         if not recipe:
             return render_template('unsupported.html', domain=domain), 501
 
+        create_pdf(recipe)
         return render_template('recipe.html', recipe=recipe)
     except:
         logging.exception(url)
