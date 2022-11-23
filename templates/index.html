@@ -1,15 +1,15 @@
-{% include 'header.html' %}
+{% extends 'layout.html' %}
 
-    <h1>Plain Old Recipes</h1>
-    <p>Take a recipe website URL and remove the cruft.</p>
+{% block body %}
+<h1>Plain Old Recipe</h1>
+<p>Take a recipe website URL and remove the cruft.</p>
 
-    <div class="recipe-input">
-        <form method="GET" action="/recipe">
-            <input type="text" name="url" autofocus />
-            <button type="submit">
-                Simplify...
-            </button>
-        </form>
-    </div>
-
-{% include 'footer.html' %}
+<div class="recipe-input">
+    <form method="GET" action="/recipe">
+        <input type="text" name="url" autofocus />
+        <button type="submit">
+            Simplify...
+        </button>
+    </form>
+</div>
+{% endblock %}

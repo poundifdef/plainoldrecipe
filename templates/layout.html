@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Plain Old Recipe</title>
+    <meta charset="UTF-8">
+
+    <meta name="description" content="Take a recipe website URL and remove the cruft.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/common.css') }}">
+
+</head>
+
+<body>
+    <main>
+        <nav class="nav">
+            <a href="/">Home</a> |
+            <a href="/supported-websites">Supported Websites</a> |
+            <a
+                href="javascript:void(window.open('https://plainoldrecipe.com/recipe?url='+location.href.replace(/%5C/$/,%20'')));">Bookmarklet</a>
+            |
+            <a href="https://github.com/poundifdef/plainoldrecipe">GitHub</a>
+        </nav>
+
+        {%block body%}{%endblock%}
+
+    </main>
+</body>
+
+</html>

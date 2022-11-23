@@ -1,9 +1,11 @@
-{% include 'header.html' %}
-    <h1>Supported Websites</h1>
+{% extends 'layout.html' %}
 
-    <ul class="supported-list">
-        {% for site in sites %}
-        <li>{{site}}</li>
-        {% endfor %}
-    </ul>
-{% include 'footer.html' %}
+{% block body %}
+<h1>Supported Websites</h1>
+
+<ul class="supported-list">
+    {% for site in sites %}
+    <li>{{site}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
