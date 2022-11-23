@@ -17,8 +17,7 @@ class Recipe(object):
         return content.text
 
     def fetch_soup(self, url):
-        # html = self.fetch_html(url)
-        html = open('example.html').read()
+        html = self.fetch_html(url)
         soup = BeautifulSoup(html, features='lxml')
         return soup
 
@@ -62,7 +61,7 @@ class WpJsonRecipe(Recipe):
             recipe['instructions'] = instructions
             recipe['instruction_groups'] = instruction_groups
 
-            recipe['image'] = '/static/example.jpg' #r['image'][0]
+            recipe['image'] = r['image'][0]
 
         return recipe
 
