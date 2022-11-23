@@ -63,4 +63,4 @@ def supported_websites():
     return render_template('supported.html', sites=sites)
 
 if __name__ == '__main__':
-    app.run('localhost', 8080, debug=True, threaded=True)
+    app.run('localhost', debug=True, threaded=True)
