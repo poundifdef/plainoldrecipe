@@ -3,8 +3,32 @@ from recipe_scrapers import scrape_me, WebsiteNotImplementedError, SCRAPERS
 import urllib
 import parsers
 import logging
+import requests
+import os
 
 app = Flask(__name__)
+
+def _record(website, status, recipe=''):
+    if not website:
+        return
+
+    payload = {'website': website, 'status': status, 'recipe': recipe}
+    requests.post(
+        'https://demo02.scratchdb.com/data?table=plainoldrecipe', 
+        headers={'X-API-KEY': os.environ.get('SCRATCHDB_API_KEY')}, 
+        json=payload)
+
+def _query(q):
+    rc = requests.get(
+        'https://demo02.scratchdb.com/query', 
+        headers={'X-API-KEY': os.environ.get('SCRATCHDB_API_KEY')}, 
+        params={'q': q})
+    
+    if rc.status_code == 200:
+        return rc.json()
+
+    print(rc.text)
+    return []
 
 def scrape_recipe(url):
     recipe = {}
@@ -46,10 +70,13 @@ def recipe():
     try:
         recipe = scrape_recipe(url)
         if not recipe:
+            _record(domain, 'Not Supported', url)
             return render_template('unsupported.html', domain=domain), 501
 
+        _record(domain, 'Success', url)
         return render_template('recipe.html', recipe=recipe)
     except:
+        _record(domain, 'Error', url)
         logging.exception(url)
         return render_template('parse_error.html', domain=domain), 418
 
@@ -61,6 +88,12 @@ def supported_websites():
     sites.sort()
 
     return render_template('supported.html', sites=sites)
+
+@app.route('/statistics')
+def statistics():
+    not_supported = _query("select website, count(*) as c from plainoldrecipe where status = 'Not Supported' and toYYYYMM(ULIDStringToDateTime(__row_id)) >= toYYYYMM(now()) and website != '' group by website order by c desc, website asc")
+    supported = _query("select website, count(*) as c from plainoldrecipe where status = 'Success' and toYYYYMM(ULIDStringToDateTime(__row_id)) >= toYYYYMM(now()) and website != '' group by website order by c desc, website asc")
+    return render_template('statistics.html', not_supported=not_supported, supported=supported)
 
 if __name__ == '__main__':
     app.run('localhost', debug=True, threaded=True)

@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>Monthly Statistics</h1>
+
+<b>Unsupported Sites</b>
+
+<table border="0" cellpadding="3" cellspacing="0" >
+        {% for w in not_supported %}
+        <tr>
+            <td>{{w.website}}</td>
+            <td>({{w.c}})</td>
+        </tr>
+        {% endfor %}
+</table>
+
+<hr>
+<b>Popular Sites</b>
+
+<table border="0" cellpadding="3" cellspacing="0">
+        {% for w in supported %}
+        <tr>
+            <td>{{w.website}}</td>
+            <td>({{w.c}})</td>
+        </tr>
+        {% endfor %}
+</table>
+
+{% endblock %}
