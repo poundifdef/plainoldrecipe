@@ -53,22 +53,26 @@ Acknowledgements
 Contributing
 ------------
 
-1. If you want to add a new scraper, please feel free to make a PR. Your diff
-   should have exactly two files: `parsers/__init__.py` and add a new class
-   in the `parsers/` directory. [Here is an example](https://github.com/poundifdef/plainoldrecipe/commit/cac857c1abb1a8cb674a2a63ebb24df0c00aa666) of what your commit might
-   look like.
+1. If you want to add a new scraper, your best bet is to contribute it to 
+   [hhursev/recipe-scrapers](https://github.com/hhursev/recipe-scrapers).
+   When they update their library, I get a notification and update to the
+   latest version.
 
-2. If you want to fix a bug in an existing scraper, please feel free to do so,
-   and include an example URL which you aim to fix. Your PR should modify exactly
-   one file, which is the corresponding module in the `parsers/` directory.
+2. If you want to fix a bug in an existing scraper, again, your best bet is 
+   to do it in [hhursev/recipe-scrapers](https://github.com/hhursev/recipe-scrapers)
 
-3. If you want to make any other modification or refactor: please create an
-   issue and ask prior to making your PR. Of course, you are welcome to fork,
-   modify, and distribute this code with your changes in accordance with the LICENSE.
+3. You can also add or modify scrapers here. These override code
+   from [hhursev/recipe-scrapers](https://github.com/hhursev/recipe-scrapers).
+   If you want to do that, your PR should have exactly two files:
+   `parsers/__init__.py` and add a new class
+   in the `parsers/` directory. [Here is an example](https://github.com/poundifdef/plainoldrecipe/commit/cac857c1abb1a8cb674a2a63ebb24df0c00aa666).
 
-4. I don't guarantee that I will keep this repo up to date, or that I will respond
+4. If you want to make any other modification or refactor: create an
+   issue and ask prior to making your PR. 
+
+5. I don't guarantee that I will keep this repo up to date, or that I will respond
    in any sort of timely fashion! Your best bet for any change is to keep PRs small
-   and focused on the minimum changeset to add your scraper :)
+   and focused on the minimum changeset possible.
 
 Testing PRs Locally
 ===================
