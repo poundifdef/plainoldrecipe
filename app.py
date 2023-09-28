@@ -92,8 +92,7 @@ def supported_websites():
 @app.route('/statistics')
 def statistics():
     not_supported = _query("select website, count(distinct recipe) as c from plainoldrecipe where status = 'Not Supported' and toYYYYMM(ULIDStringToDateTime(__row_id)) >= toYYYYMM(now()) and website != '' group by website order by c desc, website asc")
-    supported = _query("select website, count(distinct recipe) as c from plainoldrecipe where status = 'Success' and toYYYYMM(ULIDStringToDateTime(__row_id)) >= toYYYYMM(now()) and website != '' group by website order by c desc, website asc")
-    return render_template('statistics.html', not_supported=not_supported, supported=supported)
+    return render_template('statistics.html', not_supported=not_supported)
 
 if __name__ == '__main__':
     app.run('localhost', debug=True, threaded=True)
