@@ -24,7 +24,7 @@ pyparsing==3.0.9
 pyRdfa3==3.5.3
 rdflib==6.2.0
 rdflib-jsonld==0.6.2
-recipe-scrapers==14.49.0
+recipe-scrapers==14.50.2
 requests==2.25.1
 six==1.16.0
 soupsieve==2.3.2.post1
