@@ -9,6 +9,8 @@ import os
 app = Flask(__name__)
 
 def _record(website, status, recipe=''):
+    return 
+
     if not website:
         return
 
