@@ -21,6 +21,7 @@ def _record(website, status, recipe=''):
         json=payload)
 
 def _query(q):
+    return []
     rc = requests.get(
         'https://demo02.scratchdb.com/query', 
         headers={'X-API-KEY': os.environ.get('SCRATCHDB_API_KEY')}, 
