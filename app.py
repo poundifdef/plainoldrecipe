@@ -9,16 +9,10 @@ import os
 app = Flask(__name__)
 
 def _record(website, status, recipe=''):
-    return 
-
     if not website:
         return
 
-    payload = {'website': website, 'status': status, 'recipe': recipe}
-    requests.post(
-        'https://demo02.scratchdb.com/data?table=plainoldrecipe', 
-        headers={'X-API-KEY': os.environ.get('SCRATCHDB_API_KEY')}, 
-        json=payload)
+    print(f"Fetched recipe: {website} {status} {recipe}")
 
 def _query(q):
     return []
