@@ -3,6 +3,7 @@ from recipe_scrapers import scrape_me, WebsiteNotImplementedError, SCRAPERS
 import urllib
 import parsers
 import logging
+import sys
 import requests
 import os
 
@@ -12,7 +13,7 @@ def _record(website, status, recipe=''):
     if not website:
         return
 
-    print(f"Fetched recipe: {website} {status} {recipe}")
+    print(f"Fetched recipe: {website} {status} {recipe}", file=sys.stderr)
 
 def _query(q):
     return []
