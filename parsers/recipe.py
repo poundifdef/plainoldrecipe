@@ -13,7 +13,10 @@ class Recipe(object):
         #fd = open('allrecipes3.html', 'r')
         #return fd.read()
 
-        content = requests.get(url)
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36'
+        }
+        content = requests.get(url, headers=headers)
         return content.text
 
     def fetch_soup(self, url):

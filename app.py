@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify, redirect, make_response, url_for, flash
-from recipe_scrapers import scrape_me, WebsiteNotImplementedError, SCRAPERS
+from recipe_scrapers import scrape_html, WebsiteNotImplementedError, SCRAPERS
 import urllib
 import parsers
 import logging
@@ -41,7 +41,11 @@ def scrape_recipe(url):
 
     if not recipe:
         try:
-            scraper = scrape_me(url)
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36'
+            }
+            resp = requests.get(url, headers=headers).text
+            scraper = scrape_html(resp, org_url=url)
             instructions = [i.strip() for i in scraper.instructions().split("\n") if i.strip()]
             recipe = {
                 'name': scraper.title(),
