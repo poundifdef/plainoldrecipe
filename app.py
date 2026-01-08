@@ -45,7 +45,7 @@ def scrape_recipe(url):
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36'
             }
             resp = requests.get(url, headers=headers).text
-            scraper = scrape_html(resp, org_url=url)
+            scraper = scrape_html(resp, org_url=url, supported_only=False)
             instructions = [i.strip() for i in scraper.instructions().split("\n") if i.strip()]
             recipe = {
                 'name': scraper.title(),
